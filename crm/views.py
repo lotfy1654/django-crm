@@ -17,11 +17,6 @@ def home(request):
 
     return render(request, 'home.html', {})
 
-
-def about(request):
-    return render(request, 'about.html', {})
-
-
 def login_user(request):
     # Check to see if loggin
     if request.method == "POST":

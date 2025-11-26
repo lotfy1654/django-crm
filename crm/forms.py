@@ -41,18 +41,6 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
 
 
-# Record Form
-# class RecordForm(forms.ModelForm):
-#     class Meta:
-#         model = Record
-#         fields = '__all__'
-
-#         def __init__(self ,*args, **kwargs):
-#             super(RecordForm, self).__init__(*args, **kwargs)
-#             for field in self.fields:
-#                 self.fields[field].widget.attrs['class'] = 'form-control'
-
-
 class AddRecordForm(forms.ModelForm):
     first_name = forms.CharField(required=True, label="First Name", widget=forms.TextInput(
         attrs={"placeholder": "First Name", "class": "form-control"}))
@@ -76,6 +64,3 @@ class AddRecordForm(forms.ModelForm):
         exclude = ("user",)
         fields = ('first_name', 'last_name', 'email', 'phone',
                   'address', 'city', 'state', 'zipcode')
-
-    # def __init__(self, *args, **kwargs):
-    #     super(AddRecordForm, self).__init__(*args, **kwargs)
