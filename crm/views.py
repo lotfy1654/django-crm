@@ -11,10 +11,10 @@ from .models import Record
 def home(request):
 
     records = Record.objects.all()
-    
+
     if request.user.is_authenticated:
         return render(request, 'home.html', {'records': records})
-    
+
     return render(request, 'home.html', {})
 
 
@@ -67,3 +67,13 @@ def register_user(request):
     else:
         form = SignUpForm()
         return render(request, 'register.html', {'form': form})
+
+
+def record_detail(request, pk):
+    if request.user.is_authenticated:
+        # Look up the record
+        custome_record = Record.objects.get(id=pk)
+        return render(request, 'record.html', {'record': custome_record})
+    else:
+        messages.error(request, "You must be logged in to view that page...")
+        return redirect('home')

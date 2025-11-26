@@ -1,10 +1,19 @@
 {% extends 'base.html' %} 
 {% block content %} {% if user.is_authenticated %} 
 {% if records %}
-<table class="table">
-  <thead>
+
+<div class="d-flex justify-content-between align-items-center mt-3"> 
+    <h2 class="">All Records</h2>
+    <button class="btn btn-success mt-3 mb-3">
+      <a href="#" class="text-white text-decoration-none"
+        >Add New Record</a>
+    </button>
+</div>
+
+<table class="table table-striped table-hover table-bordered mt-3">
+  <thead class="table-dark">
     <tr>
-      <th scope="col">#</th>
+      <th scope="col ">#</th>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">Email</th>
@@ -18,8 +27,10 @@
   <tbody>
     {% for record in records %}
     <tr>
-      <th scope="row">{{ forloop.counter }}</th>
-      <td>{{ record.first_name }}</td>
+      <th scope="row">
+        <a href="{% url 'record_detail' record.id %}" class="link-primary">{{ forloop.counter }}</a>
+      </th>
+      <td class="">{{ record.first_name }}</td>
       <td>{{ record.last_name }}</td>
       <td>{{ record.email }}</td>
       <td>{{ record.phone }}</td>
@@ -31,6 +42,17 @@
     {% endfor %}
   </tbody>
 </table>
-{% else %}
-<h1>Home Page</h1>
-{% endif %} {% endif %} {% endblock %}
+{% endif %} {% else %}
+<div class="jumbotron mt-4">
+  <h1 class="display-4">Welcome to Django CRM!</h1>
+  <p class="lead">
+    This is a simple Customer Relationship Management (CRM) application built
+    with Django.
+  </p>
+  <hr class="my-4" />
+  <p>
+    Please <a href="{% url 'loginurl' %}">login</a> or
+    <a href="{% url 'registerurl' %}">register</a> to manage your customers.
+  </p>
+</div>
+{% endif %} {% endblock %}

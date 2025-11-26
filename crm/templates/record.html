@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block content %} {% if record %}
+<h2>Record Details</h2>
+
+<table class="table table-bordered mt-4">
+  <tr>
+    <th scope="row">First Name</th>
+    <td>{{ record.first_name }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Last Name</th>
+    <td>{{ record.last_name }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Email</th>
+    <td>{{ record.email }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Phone</th>
+    <td>{{ record.phone }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Address</th>
+    <td>{{ record.address }}</td>
+  </tr>
+  <tr>
+    <th scope="row">City</th>
+    <td>{{ record.city }}</td>
+  </tr>
+  <tr>
+    <th scope="row">State</th>
+    <td>{{ record.state }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Zip Code</th>
+    <td>{{ record.zipcode }}</td>
+  </tr>
+</table>
+
+<div class="mt-3">
+  <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+</div>
+
+<div class="mt-3">
+  <a 
+  {% comment %} href="{% url 'edit_record' record.id %}"  {% endcomment %}
+  class="btn btn-warning"
+    >Edit Record</a
+  >
+  <a 
+  {% comment %} href="{% url 'delete_record' record.id %}" {% endcomment %}
+   class="btn btn-danger"
+    >Delete Record</a
+  >
+</div>
+
+{% else %}
+<h2>Record Details</h2>
+{% endif %} {% endblock %}
