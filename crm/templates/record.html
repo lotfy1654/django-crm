@@ -1,48 +1,49 @@
 {% extends 'base.html' %} {% block content %} {% if record %}
 <h2>Record Details</h2>
 
-<table class="table table-bordered mt-4 text-center table-striped table-hover"
-style="border-radius: 10px; overflow: hidden;"
+<table
+  class="table table-bordered mt-4 text-center table-striped table-hover"
+  style="border-radius: 10px; overflow: hidden"
 >
-    <tr colspan="2" class="table-dark text-center">
-        <th colspan="2">{{record}}</th>
-    </tr>
-    <tr>
-        <th scope="row">ID</th>
-        <td>{{ record.id }}</td>
-    </tr>
-    <tr>
-        <th scope="row">First Name</th>
-        <td>{{ record.first_name }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Last Name</th>
-        <td>{{ record.last_name }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Email</th>
-        <td>{{ record.email }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Phone</th>
-        <td>{{ record.phone }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Address</th>
-        <td>{{ record.address }}</td>
-    </tr>
-    <tr>
-        <th scope="row">City</th>
-        <td>{{ record.city }}</td>
-    </tr>
-    <tr>
-        <th scope="row">State</th>
-        <td>{{ record.state }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Zip Code</th>
-        <td>{{ record.zipcode }}</td>
-    </tr>
+  <tr colspan="2" class="table-dark text-center">
+    <th colspan="2">{{record}}</th>
+  </tr>
+  <tr>
+    <th scope="row">ID</th>
+    <td>{{ record.id }}</td>
+  </tr>
+  <tr>
+    <th scope="row">First Name</th>
+    <td>{{ record.first_name }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Last Name</th>
+    <td>{{ record.last_name }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Email</th>
+    <td>{{ record.email }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Phone</th>
+    <td>{{ record.phone }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Address</th>
+    <td>{{ record.address }}</td>
+  </tr>
+  <tr>
+    <th scope="row">City</th>
+    <td>{{ record.city }}</td>
+  </tr>
+  <tr>
+    <th scope="row">State</th>
+    <td>{{ record.state }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Zip Code</th>
+    <td>{{ record.zipcode }}</td>
+  </tr>
 </table>
 
 <div class="mt-3">
@@ -50,12 +51,8 @@ style="border-radius: 10px; overflow: hidden;"
 </div>
 
 <div class="mt-3">
-  <a 
-  {% comment %} href="{% url 'edit_record' record.id %}"  {% endcomment %}
-  class="btn btn-warning">Edit Record</a>
-    <a href="{% url 'delete_record' record.id %}" class="btn btn-danger">
-        Delete Record
-    </a>
+  <a href="{% url 'home' %}" class="btn btn-warning">Edit Record</a>
+  <a href="{% url 'delete_record' record.id %}" class="btn btn-danger"> Delete Record </a>
 </div>
 
 {% else %}
