@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-
+from .models import Record
 
 class SignUpForm(UserCreationForm):
 
@@ -14,8 +14,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name',
-                  'email', 'password1', 'password2')
+        fields = ('username', 'first_name', 'last_name','email', 'password1', 'password2')
 
     # Overriding the init method to add bootstrap classes to the default fields
     def __init__(self, *args, **kwargs):
@@ -39,3 +38,15 @@ class SignUpForm(UserCreationForm):
         self.fields['password1'].help_text = '<ul class="form-text text-muted small"><li>Your password can\'t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can\'t be a commonly used password.</li><li>Your password can\'t be entirely numeric.</li></ul>'
         self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
 
+
+
+# Record Form
+class RecordForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields = '__all__'
+        
+        def __init__(self ,*args, **kwargs):
+            super(RecordForm, self).__init__(*args, **kwargs)
+            for field in self.fields:
+                self.fields[field].widget.attrs['class'] = 'form-control'
