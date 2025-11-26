@@ -21,8 +21,10 @@
         <li>
           <a class="nav-link" href="{% url 'loginurl' %}">Login</a>
         </li>
-        {% endif %} 
-        {% if user.is_authenticated %}
+        <li>
+          <a class="nav-link" href="{% url 'registerurl' %}">Register</a>
+        </li>
+        {% endif %} {% if user.is_authenticated %}
         <li>
           <a class="nav-link" href="{% url 'logouturl' %}">Logout</a>
         </li>
