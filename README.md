@@ -7,7 +7,7 @@ This is a **Django CRM (Customer Relationship Management) web application** that
 ## Technologies
 
 - Python 3.x  
-- Django 4.x (or your version)  
+- Django 4.x 
 - MySQL  
 
 ---
