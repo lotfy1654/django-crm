@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 ## Database Setup
 
-You can create the MySQL database using your Python script `mydb.py`:
+Create the MySQL database using Python script `mydb.py`:
 
 ```bash
 python mydb.py
@@ -57,4 +57,4 @@ python manage.py migrate
 ```bash 
 python manage.py runserver
 ```
-Visit http://127.0.0.1:8000/ in your browser.
+Visit http://127.0.0.1:8000/ in a browser.
