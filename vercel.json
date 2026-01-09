@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "django-crm/wsgi.py"
+      "dest": "crm_django/wsgi.py"
     }
   ]
 }
