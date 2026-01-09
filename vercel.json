@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "django-crm/wsgi.py"
+    }
+  ]
+}
